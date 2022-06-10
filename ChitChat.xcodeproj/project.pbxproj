@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5BD3378D2853D37A00E4E70E /* ChitChatApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD3378C2853D37A00E4E70E /* ChitChatApp.swift */; };
-		5BD3378F2853D37A00E4E70E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD3378E2853D37A00E4E70E /* ContentView.swift */; };
+		5BD3378F2853D37A00E4E70E /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD3378E2853D37A00E4E70E /* MainView.swift */; };
 		5BD337912853D37F00E4E70E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BD337902853D37F00E4E70E /* Assets.xcassets */; };
 		5BD337942853D37F00E4E70E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BD337932853D37F00E4E70E /* Preview Assets.xcassets */; };
 		5BD3379B2853DC1F00E4E70E /* ChitChatHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD3379A2853DC1F00E4E70E /* ChitChatHistory.swift */; };
@@ -20,7 +20,7 @@
 /* Begin PBXFileReference section */
 		5BD337892853D37A00E4E70E /* ChitChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChitChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BD3378C2853D37A00E4E70E /* ChitChatApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChitChatApp.swift; sourceTree = "<group>"; };
-		5BD3378E2853D37A00E4E70E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		5BD3378E2853D37A00E4E70E /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		5BD337902853D37F00E4E70E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5BD337932853D37F00E4E70E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5BD3379A2853DC1F00E4E70E /* ChitChatHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChitChatHistory.swift; sourceTree = "<group>"; };
@@ -61,7 +61,7 @@
 			children = (
 				5BD3378C2853D37A00E4E70E /* ChitChatApp.swift */,
 				5BD337A22853DDF500E4E70E /* Model */,
-				5BD3378E2853D37A00E4E70E /* ContentView.swift */,
+				5BD3378E2853D37A00E4E70E /* MainView.swift */,
 				5BD337902853D37F00E4E70E /* Assets.xcassets */,
 				5BD337922853D37F00E4E70E /* Preview Content */,
 			);
@@ -157,7 +157,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5BD3378F2853D37A00E4E70E /* ContentView.swift in Sources */,
+				5BD3378F2853D37A00E4E70E /* MainView.swift in Sources */,
 				5BD3379F2853DCBF00E4E70E /* SupportedPlatforms.swift in Sources */,
 				5BD3378D2853D37A00E4E70E /* ChitChatApp.swift in Sources */,
 				5BD3379D2853DC4B00E4E70E /* ChatInstance.swift in Sources */,
