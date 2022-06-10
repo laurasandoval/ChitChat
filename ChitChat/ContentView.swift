@@ -14,11 +14,11 @@ struct ContentView: View {
         NavigationView {
             List {
                 Section {
-                    HStack {
+                    HStack(spacing: 14.0) {
                         Button(action: {
                             print("Choose App")
                         }) {
-                            HStack {
+                            HStack(spacing: 6.0) {
                                 Image("WhatsApp")
                                     .resizable()
                                     .scaledToFill()
@@ -27,9 +27,11 @@ struct ContentView: View {
                                 Image(systemName: "chevron.down")
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
-                                    .frame(width: 18, height: 18)
+                                    .frame(width: 15, height: 15)
                             }
                         }
+                        .buttonStyle(PlainButtonStyle())
+                        .foregroundColor(.accentColor)
                         
                         TextField("Enter or paste a phone number", text: $phoneNumber)
                     }
