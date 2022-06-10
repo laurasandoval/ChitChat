@@ -6,8 +6,10 @@
 //
 
 import SwiftUI
+import BottomSheet
 
 struct MainView: View {
+    
     @StateObject private var viewModel = ViewModel()
     @StateObject private var preferredPlatform = PreferredPlatform()
     @StateObject private var chitChatHistory = ChitChatHistory()
@@ -19,7 +21,7 @@ struct MainView: View {
                     Section {
                         HStack(spacing: 14.0) {
                             Button(action: {
-                                print("Choose App")
+                                viewModel.showingPlatformPickerView = true
                             }) {
                                 HStack(spacing: 6.0) {
                                     Image(preferredPlatform.platform.iconArtworkName)
@@ -39,6 +41,13 @@ struct MainView: View {
                             TextField("Enter or paste a phone number", text: $viewModel.phoneNumber)
                                 .keyboardType(.phonePad)
                                 .textContentType(.telephoneNumber)
+                        }
+                        .bottomSheet(
+                            isPresented: $viewModel.showingPlatformPickerView,
+                            prefersGrabberVisible: true
+                        ) {
+                            PlatformPickerView()
+                                .environmentObject(preferredPlatform)
                         }
                     }
                     Section {

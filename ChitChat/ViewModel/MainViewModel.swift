@@ -11,6 +11,7 @@ import SwiftUI
 extension MainView {
     @MainActor class ViewModel: ObservableObject {
         @Published var phoneNumber: String = ""
+        @Published var showingPlatformPickerView: Bool = false
         
         func localizedMainButtonLabel(preferredPlatform: PreferredPlatform) -> String {
             if self.phoneNumber.isEmpty {
