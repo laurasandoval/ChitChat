@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  MainView.swift
 //  ChitChat
 //
 //  Created by Lau on 10-06-22.
@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct ContentView: View {
-    @State private var phoneNumber: String = ""
+struct MainView: View {
+    @StateObject private var viewModel = ViewModel()
     
     var body: some View {
         ZStack {
@@ -34,7 +34,7 @@ struct ContentView: View {
                             .buttonStyle(PlainButtonStyle())
                             .foregroundColor(.accentColor)
                             
-                            TextField("Enter or paste a phone number", text: $phoneNumber)
+                            TextField("Enter or paste a phone number", text: $viewModel.phoneNumber)
                                 .keyboardType(.phonePad)
                                 .textContentType(.telephoneNumber)
                         }
@@ -76,6 +76,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        MainView()
     }
 }
