@@ -55,11 +55,11 @@ struct MainView: View {
                 
                 VStack {
                     Button(action: {
-                        print("Paste or Start Chat")
+                        viewModel.mainButtonAction(preferredPlatform: preferredPlatform)
                     }) {
                         HStack {
                             Spacer()
-                            Text(viewModel.localizedButtonLabel(preferredPlatform: preferredPlatform))
+                            Text(viewModel.localizedMainButtonLabel(preferredPlatform: preferredPlatform))
                             Spacer()
                         }
                     }
