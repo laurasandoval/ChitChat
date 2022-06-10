@@ -8,7 +8,7 @@
 import Foundation
 
 @MainActor class PreferredPlatform: ObservableObject {
-    @Published var preferredPlatform: SupportedPlatform = {
+    @Published var platform: SupportedPlatform = {
         do {
             let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
             let fileURL = paths[0].appendingPathComponent("preferredPlatform.json")
@@ -28,7 +28,7 @@ import Foundation
             let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
             let fileURL = paths[0].appendingPathComponent("preferredPlatform.json")
             
-            try JSONEncoder().encode(preferredPlatform).write(to: fileURL)
+            try JSONEncoder().encode(platform).write(to: fileURL)
         } catch {
             print(error.localizedDescription)
         }

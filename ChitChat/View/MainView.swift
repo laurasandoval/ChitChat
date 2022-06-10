@@ -9,6 +9,8 @@ import SwiftUI
 
 struct MainView: View {
     @StateObject private var viewModel = ViewModel()
+    @StateObject private var preferredPlatform = PreferredPlatform()
+    @StateObject private var chitChatHistory = ChitChatHistory()
     
     var body: some View {
         ZStack {
@@ -20,7 +22,7 @@ struct MainView: View {
                                 print("Choose App")
                             }) {
                                 HStack(spacing: 6.0) {
-                                    Image("WhatsApp")
+                                    Image(preferredPlatform.platform.iconArtworkName)
                                         .resizable()
                                         .scaledToFill()
                                         .frame(width: 29, height: 29, alignment: .center)
@@ -57,7 +59,7 @@ struct MainView: View {
                     }) {
                         HStack {
                             Spacer()
-                            Text("Paste")
+                            Text(viewModel.localizedButtonLabel(preferredPlatform: preferredPlatform))
                             Spacer()
                         }
                     }

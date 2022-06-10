@@ -11,5 +11,13 @@ import SwiftUI
 extension MainView {
     @MainActor class ViewModel: ObservableObject {
         @Published var phoneNumber: String = ""
+        
+        func localizedButtonLabel(preferredPlatform: PreferredPlatform) -> String {
+            if self.phoneNumber.isEmpty {
+                return "Paste"
+            } else {
+                return "Start Chat in \(preferredPlatform.platform.name)"
+            }
+        }
     }
 }
