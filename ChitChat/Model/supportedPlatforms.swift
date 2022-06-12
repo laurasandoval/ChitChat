@@ -9,5 +9,6 @@ import Foundation
 
 var supportedPlatforms: [SupportedPlatform] = [
     SupportedPlatform(id: "whatsapp", name: "WhatsApp", iconArtworkName: "WhatsApp", urlPrefix: "https://wa.me/"),
-    SupportedPlatform(id: "telegram", name: "Telegram", iconArtworkName: "Telegram", urlPrefix: "https://t.me/")
+    SupportedPlatform(id: "telegram", name: "Telegram", iconArtworkName: "Telegram", urlPrefix: "https://t.me/"),
+    SupportedPlatform(id: "messages", name: "Messages", iconArtworkName: "Messages", urlPrefix: "sms:")
 ]
