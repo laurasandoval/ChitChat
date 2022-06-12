@@ -37,6 +37,10 @@ extension MainView {
             }
         }
         
+        func setSelectedPlatformAsPreferredPlatform(preferredPlatform: PreferredPlatform) {
+            self.selectedPlatformID = preferredPlatform.platform.id
+        }
+        
         func setPreferredPlatform(preferredPlatform: PreferredPlatform) {
             preferredPlatform.platform = supportedPlatforms.first(where: { $0.id == self.selectedPlatformID })!
             preferredPlatform.savePreferredPlatform(items: preferredPlatform.platform)

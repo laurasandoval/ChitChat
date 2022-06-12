@@ -40,6 +40,9 @@ struct MainView: View {
                                 .buttonStyle(PlainButtonStyle())
                                 .foregroundColor(.accentColor)
                             }
+                            .onAppear {
+                                viewModel.setSelectedPlatformAsPreferredPlatform(preferredPlatform: preferredPlatform)
+                            }
                             .onChange(of: viewModel.selectedPlatformID) { _ in
                                 viewModel.setPreferredPlatform(preferredPlatform: preferredPlatform)
                             }
