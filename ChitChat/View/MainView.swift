@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import BottomSheet
 
 struct MainView: View {
     
@@ -20,9 +19,13 @@ struct MainView: View {
                 List {
                     Section {
                         HStack(spacing: 14.0) {
-                            Button(action: {
-                                viewModel.showingPlatformPickerView = true
-                            }) {
+                            Menu {
+                                Picker(selection: $viewModel.selectedPlatformID, label: EmptyView()) {
+                                    ForEach(supportedPlatforms) { supportedPlatform in
+                                        Text(supportedPlatform.name)
+                                    }
+                                }
+                            } label: {
                                 HStack(spacing: 6.0) {
                                     Image(preferredPlatform.platform.iconArtworkName)
                                         .resizable()
@@ -34,22 +37,19 @@ struct MainView: View {
                                         .aspectRatio(contentMode: .fit)
                                         .frame(width: 15, height: 15)
                                 }
+                                .buttonStyle(PlainButtonStyle())
+                                .foregroundColor(.accentColor)
                             }
-                            .buttonStyle(PlainButtonStyle())
-                            .foregroundColor(.accentColor)
+                            .onChange(of: viewModel.selectedPlatformID) { _ in
+                                viewModel.setPreferredPlatform(preferredPlatform: preferredPlatform)
+                            }
                             
                             TextField("Enter or paste a phone number", text: $viewModel.phoneNumber)
                                 .keyboardType(.phonePad)
                                 .textContentType(.telephoneNumber)
                         }
-                        .bottomSheet(
-                            isPresented: $viewModel.showingPlatformPickerView,
-                            prefersGrabberVisible: true
-                        ) {
-                            PlatformPickerView()
-                                .environmentObject(preferredPlatform)
-                        }
                     }
+                    
                     Section {
                         Text("No recents.")
                     } header: {

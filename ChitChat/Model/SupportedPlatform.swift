@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct SupportedPlatform: Codable, Hashable {
+struct SupportedPlatform: Codable, Hashable, Identifiable {
+    var id: String
     var name: String
     var iconArtworkName: String
     var urlPrefix: String

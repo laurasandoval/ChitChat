@@ -13,13 +13,10 @@
 		5BD337942853D37F00E4E70E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BD337932853D37F00E4E70E /* Preview Assets.xcassets */; };
 		5BD3379B2853DC1F00E4E70E /* ChitChatHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD3379A2853DC1F00E4E70E /* ChitChatHistory.swift */; };
 		5BD3379D2853DC4B00E4E70E /* ChatInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD3379C2853DC4B00E4E70E /* ChatInstance.swift */; };
-		5BD3379F2853DCBF00E4E70E /* SupportedPlatforms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD3379E2853DCBF00E4E70E /* SupportedPlatforms.swift */; };
+		5BD3379F2853DCBF00E4E70E /* supportedPlatforms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD3379E2853DCBF00E4E70E /* supportedPlatforms.swift */; };
 		5BD337A12853DDEB00E4E70E /* SupportedPlatform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD337A02853DDEB00E4E70E /* SupportedPlatform.swift */; };
 		5BD337A42853DFE300E4E70E /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD337A32853DFE300E4E70E /* MainViewModel.swift */; };
 		5BD337A62853E0B300E4E70E /* PreferredPlatform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD337A52853E0B300E4E70E /* PreferredPlatform.swift */; };
-		5BD337AA2853E47C00E4E70E /* PlatformPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD337A92853E47C00E4E70E /* PlatformPickerView.swift */; };
-		5BD337B32853E9EF00E4E70E /* BottomSheet in Frameworks */ = {isa = PBXBuildFile; productRef = 5BD337B22853E9EF00E4E70E /* BottomSheet */; };
-		5BD337B52853EC9E00E4E70E /* PlatformPickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD337B42853EC9E00E4E70E /* PlatformPickerViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,12 +27,10 @@
 		5BD337932853D37F00E4E70E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5BD3379A2853DC1F00E4E70E /* ChitChatHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChitChatHistory.swift; sourceTree = "<group>"; };
 		5BD3379C2853DC4B00E4E70E /* ChatInstance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatInstance.swift; sourceTree = "<group>"; };
-		5BD3379E2853DCBF00E4E70E /* SupportedPlatforms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportedPlatforms.swift; sourceTree = "<group>"; };
+		5BD3379E2853DCBF00E4E70E /* supportedPlatforms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = supportedPlatforms.swift; sourceTree = "<group>"; };
 		5BD337A02853DDEB00E4E70E /* SupportedPlatform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportedPlatform.swift; sourceTree = "<group>"; };
 		5BD337A32853DFE300E4E70E /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		5BD337A52853E0B300E4E70E /* PreferredPlatform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferredPlatform.swift; sourceTree = "<group>"; };
-		5BD337A92853E47C00E4E70E /* PlatformPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformPickerView.swift; sourceTree = "<group>"; };
-		5BD337B42853EC9E00E4E70E /* PlatformPickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformPickerViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,7 +38,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5BD337B32853E9EF00E4E70E /* BottomSheet in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,7 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				5BD337A02853DDEB00E4E70E /* SupportedPlatform.swift */,
-				5BD3379E2853DCBF00E4E70E /* SupportedPlatforms.swift */,
+				5BD3379E2853DCBF00E4E70E /* supportedPlatforms.swift */,
 				5BD3379C2853DC4B00E4E70E /* ChatInstance.swift */,
 				5BD3379A2853DC1F00E4E70E /* ChitChatHistory.swift */,
 				5BD337A52853E0B300E4E70E /* PreferredPlatform.swift */,
@@ -103,7 +97,6 @@
 			isa = PBXGroup;
 			children = (
 				5BD3378E2853D37A00E4E70E /* MainView.swift */,
-				5BD337A92853E47C00E4E70E /* PlatformPickerView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -112,7 +105,6 @@
 			isa = PBXGroup;
 			children = (
 				5BD337A32853DFE300E4E70E /* MainViewModel.swift */,
-				5BD337B42853EC9E00E4E70E /* PlatformPickerViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -134,7 +126,6 @@
 			);
 			name = ChitChat;
 			packageProductDependencies = (
-				5BD337B22853E9EF00E4E70E /* BottomSheet */,
 			);
 			productName = ChitChat;
 			productReference = 5BD337892853D37A00E4E70E /* ChitChat.app */;
@@ -165,7 +156,6 @@
 			);
 			mainGroup = 5BD337802853D37A00E4E70E;
 			packageReferences = (
-				5BD337B12853E9EF00E4E70E /* XCRemoteSwiftPackageReference "BottomSheet" */,
 			);
 			productRefGroup = 5BD3378A2853D37A00E4E70E /* Products */;
 			projectDirPath = "";
@@ -193,11 +183,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5BD337AA2853E47C00E4E70E /* PlatformPickerView.swift in Sources */,
-				5BD337B52853EC9E00E4E70E /* PlatformPickerViewModel.swift in Sources */,
 				5BD337A42853DFE300E4E70E /* MainViewModel.swift in Sources */,
 				5BD3378F2853D37A00E4E70E /* MainView.swift in Sources */,
-				5BD3379F2853DCBF00E4E70E /* SupportedPlatforms.swift in Sources */,
+				5BD3379F2853DCBF00E4E70E /* supportedPlatforms.swift in Sources */,
 				5BD3378D2853D37A00E4E70E /* ChitChatApp.swift in Sources */,
 				5BD3379D2853DC4B00E4E70E /* ChatInstance.swift in Sources */,
 				5BD3379B2853DC1F00E4E70E /* ChitChatHistory.swift in Sources */,
@@ -403,25 +391,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		5BD337B12853E9EF00E4E70E /* XCRemoteSwiftPackageReference "BottomSheet" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/adamfootdev/BottomSheet#requirements";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.2.4;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		5BD337B22853E9EF00E4E70E /* BottomSheet */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 5BD337B12853E9EF00E4E70E /* XCRemoteSwiftPackageReference "BottomSheet" */;
-			productName = BottomSheet;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5BD337812853D37A00E4E70E /* Project object */;
 }

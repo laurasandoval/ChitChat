@@ -19,7 +19,7 @@ import Foundation
             return items
         } catch {
             print(error.localizedDescription)
-            return SupportedPlatforms[0]
+            return supportedPlatforms[0]
         }
     }()
     

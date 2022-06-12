@@ -12,6 +12,7 @@ extension MainView {
     @MainActor class ViewModel: ObservableObject {
         @Published var phoneNumber: String = ""
         @Published var showingPlatformPickerView: Bool = false
+        @Published var selectedPlatformID: String = supportedPlatforms[0].id
         
         func localizedMainButtonLabel(preferredPlatform: PreferredPlatform) -> String {
             if self.phoneNumber.isEmpty {
@@ -34,6 +35,11 @@ extension MainView {
                     UIApplication.shared.open(url)
                 }
             }
+        }
+        
+        func setPreferredPlatform(preferredPlatform: PreferredPlatform) {
+            preferredPlatform.platform = supportedPlatforms.first(where: { $0.id == self.selectedPlatformID })!
+            preferredPlatform.savePreferredPlatform(items: preferredPlatform.platform)
         }
     }
 }
