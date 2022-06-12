@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ChatInstance: Codable {
+struct ChatInstance: Codable, Hashable {
     var phoneNumber: String
     var date: Date
     var platform: SupportedPlatform

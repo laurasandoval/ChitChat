@@ -53,25 +53,56 @@ struct MainView: View {
                     }
                     
                     Section {
-                        VStack(spacing: 17.0) {
-                            Image(systemName: "message.fill")
-                                .resizable()
-                                .scaledToFill()
-                                .frame(width: 27.0, height: 27.0, alignment: .center)
-                            
-                            VStack(spacing: 2.0) {
-                                Text("No Chit Chats")
-                                    .font(.subheadline)
-                                    .fontWeight(.semibold)
-                                Text("Phone numbers you start chats with will appear here.")
-                                    .font(.subheadline)
+                        if chitChatHistory.chatHistory.count == 0 {
+                            VStack(spacing: 17.0) {
+                                Image(systemName: "message.fill")
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: 27.0, height: 27.0, alignment: .center)
+                                
+                                VStack(spacing: 2.0) {
+                                    Text("No Chit Chats")
+                                        .font(.subheadline)
+                                        .fontWeight(.semibold)
+                                    Text("Phone numbers you start chats with will appear here.")
+                                        .font(.subheadline)
+                                }
+                            }
+                            .multilineTextAlignment(.center)
+                            .frame(maxWidth: .infinity)
+                            .foregroundColor(.secondary)
+                            .fixedSize(horizontal: false, vertical: true)
+                            .padding()
+                        } else {
+                            ForEach(chitChatHistory.chatHistory.reversed(), id: \.self) { chatInstance in
+                                HStack {
+                                    VStack(alignment: .leading) {
+                                        Text(chatInstance.phoneNumber)
+                                            .font(.headline)
+                                            .fontWeight(.regular)
+                                        Text(chatInstance.platform.name)
+                                            .font(.subheadline)
+                                            .foregroundColor(.secondary)
+                                    }
+                                    Spacer()
+                                    HStack(spacing: 6.0) {
+                                        Text("\(Calendar.current.component(.hour, from: chatInstance.date)):\(Calendar.current.component(.minute, from: chatInstance.date))")
+                                        Button(action: {
+                                            print("Info")
+                                        }) {
+                                            Image(systemName: "info.circle")
+                                                .resizable()
+                                                .aspectRatio(contentMode: .fit)
+                                                .frame(width: 17, height: 17)
+                                        }
+                                        .buttonStyle(PlainButtonStyle())
+                                        .foregroundColor(.accentColor)
+                                    }
+                                }
+                                .listRowInsets(EdgeInsets(top: 13.0, leading: 16.0, bottom: 13.0, trailing: 16.0))
+                                .transition(.scale)
                             }
                         }
-                        .multilineTextAlignment(.center)
-                        .frame(maxWidth: .infinity)
-                        .foregroundColor(.secondary)
-                        .fixedSize(horizontal: false, vertical: true)
-                        .padding()
                     } header: {
                         Text("Recents")
                     }
@@ -84,7 +115,7 @@ struct MainView: View {
                 
                 VStack {
                     Button(action: {
-                        viewModel.mainButtonAction(preferredPlatform: preferredPlatform)
+                        viewModel.mainButtonAction(preferredPlatform: preferredPlatform, chitChatHistory: chitChatHistory)
                     }) {
                         HStack {
                             Spacer()
