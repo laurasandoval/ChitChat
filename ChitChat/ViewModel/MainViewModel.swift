@@ -31,7 +31,8 @@ extension MainView {
                     print("No string was found in pasteboard")
                 }
             } else {
-                if let url = URL(string: "\(preferredPlatform.platform.urlPrefix)\(self.phoneNumber)") {
+                let formattedPhoneNumber = self.phoneNumber.filter("0123456789.".contains)
+                if let url = URL(string: "\(preferredPlatform.platform.urlPrefix)+\(formattedPhoneNumber)") {
                     UIApplication.shared.open(url)
                 }
             }
