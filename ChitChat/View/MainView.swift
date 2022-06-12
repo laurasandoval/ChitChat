@@ -49,7 +49,6 @@ struct MainView: View {
                             
                             TextField("Enter or paste a phone number", text: $viewModel.phoneNumber)
                                 .keyboardType(.phonePad)
-                                .textContentType(.telephoneNumber)
                         }
                     }
                     
