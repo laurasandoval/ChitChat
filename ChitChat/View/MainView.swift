@@ -54,7 +54,25 @@ struct MainView: View {
                     }
                     
                     Section {
-                        Text("No recents.")
+                        VStack(spacing: 17.0) {
+                            Image(systemName: "message.fill")
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 27.0, height: 27.0, alignment: .center)
+                            
+                            VStack(spacing: 2.0) {
+                                Text("No Chit Chats")
+                                    .font(.subheadline)
+                                    .fontWeight(.semibold)
+                                Text("Phone numbers you start chats with will appear here.")
+                                    .font(.subheadline)
+                            }
+                        }
+                        .multilineTextAlignment(.center)
+                        .frame(maxWidth: .infinity)
+                        .foregroundColor(.secondary)
+                        .fixedSize(horizontal: false, vertical: true)
+                        .padding()
                     } header: {
                         Text("Recents")
                     }
