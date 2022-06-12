@@ -23,7 +23,7 @@ import Foundation
         }
     }()
     
-    func saveToChatHistory(items: [ChatInstance]) {
+    func saveChatHistory(items: [ChatInstance]) {
         do {
             let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
             let fileURL = paths[0].appendingPathComponent("chitChatHistory.json")

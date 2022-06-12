@@ -14,6 +14,9 @@ extension MainView {
         @Published var showingPlatformPickerView: Bool = false
         @Published var selectedPlatformID: String = supportedPlatforms[0].id
         
+        @Published var editMode: EditMode = .inactive
+        @Published var chatHistorySelection = Set<ChatInstance>()
+        
         func localizedMainButtonLabel(preferredPlatform: PreferredPlatform) -> String {
             if self.phoneNumber.isEmpty {
                 return "Paste"
@@ -32,7 +35,8 @@ extension MainView {
                 }
             } else {
                 let formattedPhoneNumber: String = "+\(self.phoneNumber.filter("0123456789".contains))"
-                if formattedPhoneNumber.isEmpty {
+                
+                if (formattedPhoneNumber.isEmpty || formattedPhoneNumber == "+") {
                     print("Not a phone number")
                     DispatchQueue.main.async {
                         // Haptic feedback <3
@@ -46,7 +50,7 @@ extension MainView {
                         
                         withAnimation {
                             chitChatHistory.chatHistory.append(newChatInstance)
-                            chitChatHistory.saveToChatHistory(items: chitChatHistory.chatHistory)
+                            chitChatHistory.saveChatHistory(items: chitChatHistory.chatHistory)
                         }
                         
                         // Open in App
@@ -56,6 +60,20 @@ extension MainView {
                     }
                 }
             }
+        }
+        
+        func deleteChatInstanceFromChitChatHistory(chitChatHistory: ChitChatHistory) {
+            for chatInstance in self.chatHistorySelection {
+                if let index = chitChatHistory.chatHistory.lastIndex(where: { $0 == chatInstance }) {
+                    chitChatHistory.chatHistory.remove(at: index)
+                }
+            }
+            chitChatHistory.saveChatHistory(items: chitChatHistory.chatHistory)
+        }
+        
+        func clearChitChatHistory(chitChatHistory: ChitChatHistory) {
+            chitChatHistory.chatHistory = []
+            chitChatHistory.saveChatHistory(items: chitChatHistory.chatHistory)
         }
         
         func setSelectedPlatformAsPreferredPlatform(preferredPlatform: PreferredPlatform) {

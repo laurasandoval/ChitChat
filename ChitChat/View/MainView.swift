@@ -16,7 +16,7 @@ struct MainView: View {
     var body: some View {
         ZStack {
             NavigationView {
-                List {
+                List(selection: $viewModel.chatHistorySelection) {
                     Section {
                         HStack(spacing: 14.0) {
                             Menu {
@@ -100,7 +100,7 @@ struct MainView: View {
                                     }
                                 }
                                 .listRowInsets(EdgeInsets(top: 13.0, leading: 16.0, bottom: 13.0, trailing: 16.0))
-                                .transition(.scale)
+                                .transition(.opacity)
                             }
                         }
                     } header: {
@@ -108,29 +108,54 @@ struct MainView: View {
                     }
                 }
                 .navigationTitle("Chit Chat")
-            }
-            
-            VStack {
-                Spacer()
-                
-                VStack {
-                    Button(action: {
-                        viewModel.mainButtonAction(preferredPlatform: preferredPlatform, chitChatHistory: chitChatHistory)
-                    }) {
-                        HStack {
-                            Spacer()
-                            Text(viewModel.localizedMainButtonLabel(preferredPlatform: preferredPlatform))
-                            Spacer()
+                .toolbar {
+                    ToolbarItem(placement: .cancellationAction) {
+                        if chitChatHistory.chatHistory.count > 0 {
+                            EditButton()
+                                .font(viewModel.editMode == .active ? .headline : .body)
                         }
                     }
-                    .font(.headline)
-                    .foregroundColor(.white)
-                    .padding()
-                    .background(Color.accentColor)
-                    .clipShape(RoundedRectangle(cornerRadius: 10.0, style: .continuous))
+                    ToolbarItem(placement: .bottomBar) {
+                        Button(action: {
+                            viewModel.clearChitChatHistory(chitChatHistory: chitChatHistory)
+                        }) {
+                            Text("Clear All")
+                        }
+                    }
+                    ToolbarItem(placement: .bottomBar) {
+                        Button(action: {
+                            viewModel.deleteChatInstanceFromChitChatHistory(chitChatHistory: chitChatHistory)
+                        }) {
+                            Text("Delete")
+                        }
+                    }
                 }
-                .padding()
-                .background(.thinMaterial)
+                .environment(\.editMode, $viewModel.editMode)
+            }
+            
+            if viewModel.editMode != .active {
+                VStack {
+                    Spacer()
+                    
+                    VStack {
+                        Button(action: {
+                            viewModel.mainButtonAction(preferredPlatform: preferredPlatform, chitChatHistory: chitChatHistory)
+                        }) {
+                            HStack {
+                                Spacer()
+                                Text(viewModel.localizedMainButtonLabel(preferredPlatform: preferredPlatform))
+                                Spacer()
+                            }
+                        }
+                        .font(.headline)
+                        .foregroundColor(.white)
+                        .padding()
+                        .background(Color.accentColor)
+                        .clipShape(RoundedRectangle(cornerRadius: 10.0, style: .continuous))
+                    }
+                    .padding()
+                    .background(.thinMaterial)
+                }
             }
         }
     }
