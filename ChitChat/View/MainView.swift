@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Introspect
 
 struct MainView: View {
     
@@ -49,6 +50,9 @@ struct MainView: View {
                             
                             TextField("Enter or paste a phone number", text: $viewModel.phoneNumber)
                                 .keyboardType(.phonePad)
+                                .introspectTextField { textField in
+                                    textField.becomeFirstResponder()
+                                }
                         }
                     }
                     
@@ -132,6 +136,9 @@ struct MainView: View {
                 }
                 .environment(\.editMode, $viewModel.editMode)
             }
+            .onTapGesture {
+                self.hideKeyboard()
+            }
             
             if viewModel.editMode != .active {
                 VStack {
@@ -158,6 +165,12 @@ struct MainView: View {
                 }
             }
         }
+    }
+}
+
+extension View {
+    func hideKeyboard() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 }
 

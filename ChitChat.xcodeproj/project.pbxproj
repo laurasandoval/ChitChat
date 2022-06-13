@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5BCAAF702857A6EC0093724D /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = 5BCAAF6F2857A6EC0093724D /* Introspect */; };
 		5BD3378D2853D37A00E4E70E /* ChitChatApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD3378C2853D37A00E4E70E /* ChitChatApp.swift */; };
 		5BD3378F2853D37A00E4E70E /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD3378E2853D37A00E4E70E /* MainView.swift */; };
 		5BD337912853D37F00E4E70E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BD337902853D37F00E4E70E /* Assets.xcassets */; };
@@ -38,6 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BCAAF702857A6EC0093724D /* Introspect in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,6 +128,7 @@
 			);
 			name = ChitChat;
 			packageProductDependencies = (
+				5BCAAF6F2857A6EC0093724D /* Introspect */,
 			);
 			productName = ChitChat;
 			productReference = 5BD337892853D37A00E4E70E /* ChitChat.app */;
@@ -156,6 +159,7 @@
 			);
 			mainGroup = 5BD337802853D37A00E4E70E;
 			packageReferences = (
+				5BCAAF6E2857A6EC0093724D /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
 			);
 			productRefGroup = 5BD3378A2853D37A00E4E70E /* Products */;
 			projectDirPath = "";
@@ -393,6 +397,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5BCAAF6E2857A6EC0093724D /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/siteline/SwiftUI-Introspect";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5BCAAF6F2857A6EC0093724D /* Introspect */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5BCAAF6E2857A6EC0093724D /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
+			productName = Introspect;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5BD337812853D37A00E4E70E /* Project object */;
 }
