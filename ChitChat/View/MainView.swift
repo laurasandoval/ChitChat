@@ -117,6 +117,7 @@ struct MainView: View {
                         Text("Recents")
                     }
                 }
+                .scrollDismissesKeyboard(.immediately)
                 .navigationTitle("Chit Chat")
                 .toolbar {
                     ToolbarItem(placement: .cancellationAction) {
@@ -141,9 +142,6 @@ struct MainView: View {
                     }
                 }
                 .environment(\.editMode, $viewModel.editMode)
-            }
-            .onTapGesture {
-                self.hideKeyboard()
             }
             
             if viewModel.editMode != .active {
@@ -171,12 +169,6 @@ struct MainView: View {
                 }
             }
         }
-    }
-}
-
-extension View {
-    func hideKeyboard() {
-        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 }
 
