@@ -53,6 +53,9 @@ extension MainView {
                             chitChatHistory.saveChatHistory(items: chitChatHistory.chatHistory)
                         }
                         
+                        // Clear TextField
+                        self.phoneNumber = ""
+                        
                         // Open in App
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
                             UIApplication.shared.open(url)
