@@ -6,13 +6,18 @@
 //
 
 import SwiftUI
-import Introspect
 
 struct MainView: View {
     
     @StateObject private var viewModel = ViewModel()
     @StateObject private var preferredPlatform = PreferredPlatform()
     @StateObject private var chitChatHistory = ChitChatHistory()
+    
+    enum FocusedField {
+        case phoneNumber
+    }
+    
+    @FocusState private var focusedField: FocusedField?
     
     var body: some View {
         ZStack {
@@ -50,8 +55,9 @@ struct MainView: View {
                             
                             TextField("Enter or paste a phone number", text: $viewModel.phoneNumber)
                                 .keyboardType(.phonePad)
-                                .introspectTextField { textField in
-                                    textField.becomeFirstResponder()
+                                .focused($focusedField, equals: .phoneNumber)
+                                .onAppear {
+                                    self.focusedField = .phoneNumber
                                 }
                         }
                     }
